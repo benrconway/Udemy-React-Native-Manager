@@ -61,3 +61,6 @@ buck-out/
 # VSCode
 .vscode/
 .vscode/*
+
+# Env
+firebaseConfig.json

@@ -1,10 +1,19 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux';
+import { SafeAreaView, Text, StyleSheet } from 'react-native';
+import reducers from './src/reducers';
 
-const App = () => {
+class App extends Component {
+ render() {
   return (
-    <Text>Manager App</Text>
+    <Provider store={createStore(reducers)}>
+      <SafeAreaView>
+        <Text>Manager App</Text>
+      </SafeAreaView>
+    </Provider>
   )
+ }
 }
 
 const styles = StyleSheet.create({});
