@@ -16,7 +16,7 @@ export default (state = INITIAL_STATE, action) => {
       const { prop, value } = action.payload;
       return {...state, [prop]: value }
     case EMPLOYEE_CREATE:
-
+      return INITIAL_STATE;
     default:
       return state;
   };
