@@ -1,3 +1,4 @@
+import { USERNAME, PASSWORD } from '../../envConfig';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
@@ -7,8 +8,8 @@ import {
 } from '../actions/types'
 
 const INITIAL_STATE = {
-  email: 'test@test.com',
-  password: '',
+  email: USERNAME,
+  password: PASSWORD,
   loading: null,
   error: '',
   user: null,

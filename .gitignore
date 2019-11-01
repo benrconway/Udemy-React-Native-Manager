@@ -64,3 +64,4 @@ buck-out/
 
 # Env
 firebaseConfig.json
+envConfig.js
