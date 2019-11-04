@@ -19,7 +19,7 @@ class EmployeeList extends Component {
       <View>
         <FlatList
           data={this.props.employees}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.uid}
           renderItem={this.renderItem.bind(this)}
         />
       </View>
@@ -33,7 +33,7 @@ const mapStateToProps = state => {
   const items = Object.entries(state.employees)
   const employees = items.map(item => {
     const { name, phone, shift } = item[1]
-    return { id: item[0], name, phone, shift }
+    return { uid: item[0], name, phone, shift }
   })
   return {
     employees,
