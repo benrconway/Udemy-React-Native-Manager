@@ -20,20 +20,20 @@ class EmployeeEdit extends Component {
     this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid });
   }
 
-  onDeleteButtonPress() {
-    const { uid } = this.props.employee;
-    this.renderModal();
-    this.props.employeeDelete({ uid });
-  }
-
   onTextButtonPress() {
     const { phone, shift } = this.props;
 
     Communcations.text(phone, `Your upcoming shift is on ${shift}`);
   }
 
-  renderModal() {
-    this.setState({ showModal: !this.state.showModal });
+  onAccept() {
+    const { uid } = this.props.employee;
+    this.renderModal();
+    this.props.employeeDelete({ uid });
+  }
+
+  onDecline() {
+    this.setState({ showModal: false });
   }
 
   render() {
@@ -54,15 +54,15 @@ class EmployeeEdit extends Component {
         </CardSection>
 
         <CardSection>
-          <Button onPress={this.renderModal.bind(this)}>
+          <Button onPress={() => this.setState({ showModal: !this.state.showModal })}>
             Fire Employee
           </Button>
         </CardSection>
 
         <Confirm
           visible={this.state.showModal}
-          onAccept={this.onDeleteButtonPress.bind(this)}
-          onDecline={this.renderModal.bind(this)}
+          onAccept={this.onAccept.bind(this)}
+          onDecline={this.onDecline.bind(this)}
         >
           Are you sure you want to delete this employee?
         </Confirm>
